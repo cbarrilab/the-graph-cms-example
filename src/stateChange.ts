@@ -7,12 +7,10 @@ export function handleStateChange(event: StateChange): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
   // let entity = ExampleEntity.load(event.transaction.from.toHex())
-  log.info('Data toString {}', [event.params.data.toString()])
-  const data = event.params.data.toString()
+  const data = Bytes.fromHexString(event.params.data.toHex()).toString()
   const tags = new Map<string, string>();
 
   let i: i32 = 0
-  log.info('data length {}', [data.length.toString()])
   while (i < data.length) {
     const tag = data.substring(i, i + 2);
     log.info('tag {}', [tag])

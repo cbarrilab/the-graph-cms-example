@@ -21,4 +21,4 @@ dataSources:
       eventHandlers:
         - event: StateChange(address,bytes)
           handler: handleStateChange
-      file: ./src/mapping.ts
+      file: ./src/stateChange.ts

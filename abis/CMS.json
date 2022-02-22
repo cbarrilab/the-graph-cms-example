@@ -10,6 +10,12 @@
       },
       {
         "indexed": false,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
         "internalType": "bytes",
         "name": "data",
         "type": "bytes"
@@ -21,9 +27,9 @@
   {
     "inputs": [
       {
-        "internalType": "bytes",
+        "internalType": "bytes[]",
         "name": "data_",
-        "type": "bytes"
+        "type": "bytes[]"
       }
     ],
     "name": "stateChange",

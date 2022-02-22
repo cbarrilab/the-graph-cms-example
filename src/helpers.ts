@@ -1,6 +1,6 @@
 import { StateChange } from "../generated/CMS/CMS";
 import { handleStateChange } from "./stateChange";
-import { Address, Bytes, ethereum } from "@graphprotocol/graph-ts";
+import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
 import { newMockEvent } from "matchstick-as/assembly/defaults";
 
 export function handleNewStateChanges(events: StateChange[]): void {
@@ -27,10 +27,16 @@ export function createNewStateChangeEvent(
     'author',
     ethereum.Value.fromAddress(Address.fromString(ownerAddress))
   )
+  const id: BigInt = new BigInt(1)
+  let idParam = new ethereum.EventParam(
+    'id',
+    ethereum.Value.fromUnsignedBigInt(id)
+  )
   const bytes = Bytes.fromByteArray(Bytes.fromHexString(data))
   let dataParam = new ethereum.EventParam('data', ethereum.Value.fromBytes(bytes))
 
   newStateChangeEvent.parameters.push(addressParam)
+  newStateChangeEvent.parameters.push(idParam)
   newStateChangeEvent.parameters.push(dataParam)
 
   return newStateChangeEvent

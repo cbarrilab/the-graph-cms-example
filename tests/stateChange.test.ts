@@ -15,7 +15,7 @@ test('Can call mappings with custom events', () => {
   // data: '010201020201030400030415Another Project'
   let newStateChangeEvent = createNewStateChangeEvent(
     '0xFfe64338Ce6c7443858D5286463Bbf4922a0056e',
-    '0x303130323031303230323031303330343030303230343132546573742050726f6a656374'
+    '0x030115cd85e01f144ced0c812bcc45c933ef4abdc69ed77e557acc669700b58f6e80'
   )
   log.info('Despues createNewStateChangeEvent', [])
 
@@ -24,8 +24,8 @@ test('Can call mappings with custom events', () => {
   handleNewStateChanges([newStateChangeEvent])
   log.info('Despues handleNewStateChanges', [])
 
-  assert.fieldEquals('Project', '0002', 'owner', '0xffe64338ce6c7443858d5286463bbf4922a0056e')
-  assert.fieldEquals('Project', '0002', 'name', 'Test Project')
+  assert.fieldEquals('Content', '1', 'owner', '0xffe64338ce6c7443858d5286463bbf4922a0056e')
+  assert.fieldEquals('Content', '1', 'metadata', 'QmPom35pEPJRSUnVvsurU7PoENCbRjH3ns2PuHb7PqdwmH')
 
   clearStore()
 })

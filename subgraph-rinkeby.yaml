@@ -6,9 +6,9 @@ dataSources:
     name: CMS
     network: rinkeby
     source:
-      address: "0xab62F94EC37E7F8c7a7DA560C6a1B6225362Cd12"
+      address: "0xde5ACBb5F29940082AFC7b3AC68B607B1FC55e83"
       abi: CMS
-      startBlock: 10203158
+      startBlock: 10210279
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -19,6 +19,6 @@ dataSources:
         - name: CMS
           file: ./abis/CMS.json
       eventHandlers:
-        - event: StateChange(address,bytes)
+        - event: StateChange(address,uint256,bytes)
           handler: handleStateChange
       file: ./src/stateChange.ts

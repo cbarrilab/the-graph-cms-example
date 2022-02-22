@@ -1,7 +1,6 @@
 import {Address, BigInt, log, ipfs, json, Bytes} from "@graphprotocol/graph-ts"
 import { StateChange } from "../generated/CMS/CMS"
 import { Content } from "../generated/schema";
-import { encode } from "as-base58";
 
 export function handleStateChange(event: StateChange): void {
   const id = event.params.id
@@ -14,7 +13,7 @@ export function handleStateChange(event: StateChange): void {
 
   log.info("body: {}", [body.toString()])
   let bytes = Bytes.fromHexString("0x1220" + body);
-  const hash = encode(bytes)
+  const hash = ''
   log.info("hash: {}", [hash])
 
   // content.create
